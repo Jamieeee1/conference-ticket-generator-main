@@ -42,7 +42,8 @@
         <p>Upload Avatar</p>
         <label
           for="avatar"
-          class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500"
+          class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500 backdrop-blur-md"
+          id="droparea"
         >
           <input
             type="file"
@@ -51,8 +52,26 @@
             hidden
             accept="image/png, image/jpeg"
           />
-          <img src="/assets/images/icon-upload.svg" alt="" srcset="" />
-          <p>Drag and drop or click to upload</p>
+          <div class="w-12 h-12 flex items-center justify-center rounded-xl">
+            <img
+              src="/assets/images/icon-upload.svg"
+              alt=""
+              srcset=""
+              class="h-full w-full"
+              id="avatar-icon"
+            />
+          </div>
+          <div>
+            <p>Drag and drop or click to upload</p>
+            <div class="flex gap-8">
+              <button class="rounded-xl text-Neutral-300 bg-none">
+                Remove Image
+              </button>
+              <button class="rounded-xl text-Neutral-300 bg-none">
+                Change Image
+              </button>
+            </div>
+          </div>
         </label>
         <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
 
@@ -104,7 +123,7 @@
         >. Coded by <a href="#">Your Name Here</a>.
       </div>
 
-      <div class="absolute bottom-0 lg:max-h-[500px] lg:max-w-1/2">
+      <div class="absolute bottom-0 lg:max-h-[500px] lg:max-w-1/2 -z-10">
         <img
           src="assets\images\pattern-squiggly-line-bottom-mobile-tablet.svg"
           alt=""
