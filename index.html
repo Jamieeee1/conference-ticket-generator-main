@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Conference ticket generator</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[url('assets/images/background-mobile.png')] bg-cover bg-no-repeat bg-center md:bg-[url('assets/images/background-tablet.png')] lg:bg-[url('assets/images/background-desktop.png')] text-Neutral-0"
+  >
+    <div class="relative min-h-screen px-3">
+      <div
+        class="absolute w-[140px] md:w-[180px] lg:h-[350px] lg:w-[350px] md:h-[180px] h-[140px] right-0 top-4 lg:top-8"
+      >
+        <img src="/assets/images/pattern-squiggly-line-top.svg" alt="" />
+      </div>
+      <!-- Form starts -->
+      <form action="" class="flex flex-col gap-4" id="form">
+        <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+        <p>Secure your spot at next year's biggest coding conference.</p>
+        <p>Upload Avatar</p>
+        <label
+          for="avatar"
+          class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500"
+        >
+          <input
+            type="file"
+            name="avatar"
+            id="avatar"
+            hidden
+            accept="image/png, image/jpeg"
+          />
+          <img src="/assets/images/icon-upload.svg" alt="" srcset="" />
+          <p>Drag and drop or click to upload</p>
+        </label>
+        <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+
+        <label for="name">Full Name</label>
+        <input
+          class="user-input"
+          type="text"
+          id="name"
+          placeholder="e.g. John Doe"
+        />
+        <label for="email">Email Address</label>
+        <input
+          class="user-input"
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+        />
+        <label for="github">GitHub Username</label>
+        <input
+          class="user-input"
+          type="text"
+          id="github"
+          placeholder="@yourusername"
+        />
+        <button
+          type="submit"
+          class="bg-Orange-700 text-Neutral-900 rounded-lg py-3"
+        >
+          Generate My Ticket
+        </button>
+      </form>
+
+      <!-- Form ends -->
+
+      <div class="hidden">
+        <!-- Generated tickets starts -->
+        Congrats,
+        <!-- Full Name -->! Your ticket is ready. We've emailed your ticket to
+        <!-- Email Address -->
+        and will send updates in the run up to the event. Coding Conf Jan 31,
+        2025 / Austin, TX
+
+        <!-- Generated tickets ends -->
+      </div>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+
+      <div class="absolute bottom-0 lg:max-h-[500px] lg:max-w-1/2">
+        <img
+          src="assets\images\pattern-squiggly-line-bottom-mobile-tablet.svg"
+          alt=""
+          srcset="
+            assets\images\pattern-squiggly-line-bottom-mobile-tablet.svg  768w,
+            assets/images/pattern-squiggly-line-bottom-desktop.svg       1024w
+          "
+          sizes="(max-width: 768px) 768w, (min-width: 769px) 1024w"
+        />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
