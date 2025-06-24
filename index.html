@@ -45,79 +45,93 @@
         <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
         <p>Secure your spot at next year's biggest coding conference.</p>
         <p>Upload Avatar</p>
-        <label
-          for="avatar"
-          class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500 bg-Neutral-300/20"
-          id="droparea"
-        >
-          <input
-            type="file"
-            name="avatar"
-            id="avatar"
-            hidden
-            accept="image/png, image/jpeg"
-          />
-          <div
-            class="w-12 h-12 flex items-center justify-center rounded-xl mb-3"
+        <div class="flex flex-col gap-1">
+          <label
+            for="avatar"
+            class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500 bg-Neutral-300/20"
+            id="droparea"
           >
-            <img
-              src="/assets/images/icon-upload.svg"
-              alt=""
-              srcset=""
-              class="h-full w-full"
-              id="avatar-icon"
+            <input
+              type="file"
+              name="avatar"
+              id="avatar"
+              hidden
+              accept="image/png, image/jpeg"
             />
-          </div>
-          <div>
-            <p id="dragtodrop" class="text-Neutral-300">
-              Drag and drop or click to upload
-            </p>
-            <div id="imageEdit" class="flex gap-8 hidden">
-              <button class="imageFix underline button" id="removeimage">
-                Remove Image
-              </button>
-              <button id="changeimage" class="imageFix button">
-                Change Image
-              </button>
+            <div
+              class="w-12 h-12 flex items-center justify-center rounded-xl mb-3"
+            >
+              <img
+                src="/assets/images/icon-upload.svg"
+                alt=""
+                srcset=""
+                class="h-full w-full rounded-xl"
+                id="avatar-icon"
+              />
             </div>
-          </div>
-        </label>
-        <p class="text-Neutral-500 text-xs flex items-center gap-2">
-          <span>
-            <i class="fa-solid fa-circle-info"></i>
-          </span>
-          Upload your photo (JPG or PNG, max size: 500KB).
-        </p>
+            <div>
+              <p id="dragtodrop" class="text-Neutral-300">
+                Drag and drop or click to upload
+              </p>
+              <div id="imageEdit" class="flex gap-8 hidden">
+                <button class="imageFix underline button" id="removeimage">
+                  Remove Image
+                </button>
+                <button id="changeimage" class="imageFix button">
+                  Change Image
+                </button>
+              </div>
+            </div>
+          </label>
+          <p class="text-Neutral-500 text-xs flex items-center gap-2">
+            <span>
+              <i class="fa-solid fa-circle-info"></i>
+            </span>
+            Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
+        </div>
 
-        <div class="input-container">
-          <label for="name">Full Name</label>
-          <input
-            class="user-input"
-            type="text"
-            id="name"
-            placeholder="e.g. John Doe"
-          />
-          <span id="name-error"></span>
-        </div>
-        <div class="input-container">
-          <label for="email">Email Address</label>
-          <input
-            class="user-input"
-            type="email"
-            id="email"
-            placeholder="example@email.com"
-          />
-          <span id="email-error"></span>
-        </div>
-        <div class="input-container">
-          <label for="github">GitHub Username</label>
-          <input
-            class="user-input"
-            type="text"
-            id="github"
-            placeholder="@yourusername"
-          />
-          <span id="github-error"></span>
+        <div class="flex flex-col gap-1">
+          <div class="input-container">
+            <label for="name">Full Name</label>
+            <input
+              class="user-input border-Neutral-300"
+              type="text"
+              id="name"
+              placeholder="e.g. John Doe"
+            />
+            <span id="name-error" class="text-Orange-500/70 text-sm invisible">
+              <span>
+                <i class="fa-solid fa-circle-info"></i>
+              </span>
+              Enter a valid full name</span
+            >
+          </div>
+          <div class="input-container">
+            <label for="email">Email Address</label>
+            <input
+              class="user-input border-Neutral-300"
+              type="email"
+              id="email"
+              placeholder="example@email.com"
+            />
+            <span id="email-error" class="text-Orange-500/70 text-sm invisible">
+              <span>
+                <i class="fa-solid fa-circle-info"></i>
+              </span>
+              Please enter a valid email address</span
+            >
+          </div>
+          <div class="input-container">
+            <label for="github">GitHub Username</label>
+            <input
+              class="user-input border-Neutral-300"
+              type="text"
+              id="github"
+              placeholder="@yourusername"
+            />
+            <span id="github-error"></span>
+          </div>
         </div>
         <button
           type="submit"
