@@ -56,4 +56,14 @@ changeButton.addEventListener("click", () => {
   fileInput.click();
 });
 
-const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
+// const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
+
+droparea.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+droparea.addEventListener("drop", (e) => {
+  e.preventDefault();
+  fileInput.files = e.dataTransfer.files;
+  updateAvatar();
+});
