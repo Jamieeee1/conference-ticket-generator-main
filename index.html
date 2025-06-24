@@ -25,6 +25,11 @@
         color: hsl(228, 45%, 44%);
       }
     </style>
+
+    <script
+      src="https://kit.fontawesome.com/4ab895e590.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body
     class="bg-[url('assets/images/background-mobile.png')] bg-cover bg-no-repeat bg-center md:bg-[url('assets/images/background-tablet.png')] lg:bg-[url('assets/images/background-desktop.png')] text-Neutral-0"
@@ -42,7 +47,7 @@
         <p>Upload Avatar</p>
         <label
           for="avatar"
-          class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500 backdrop-blur-md"
+          class="flex flex-col items-center justify-center gap-2 border-2 border-dashed rounded-md p-4 cursor-pointer border-Neutral-500 bg-Neutral-300/20"
           id="droparea"
         >
           <input
@@ -52,7 +57,9 @@
             hidden
             accept="image/png, image/jpeg"
           />
-          <div class="w-12 h-12 flex items-center justify-center rounded-xl">
+          <div
+            class="w-12 h-12 flex items-center justify-center rounded-xl mb-3"
+          >
             <img
               src="/assets/images/icon-upload.svg"
               alt=""
@@ -62,43 +69,59 @@
             />
           </div>
           <div>
-            <p>Drag and drop or click to upload</p>
-            <div class="flex gap-8">
-              <button class="rounded-xl text-Neutral-300 bg-none">
+            <p id="dragtodrop" class="text-Neutral-300">
+              Drag and drop or click to upload
+            </p>
+            <div id="imageEdit" class="flex gap-8 hidden">
+              <button class="imageFix underline button" id="removeimage">
                 Remove Image
               </button>
-              <button class="rounded-xl text-Neutral-300 bg-none">
+              <button id="changeimage" class="imageFix button">
                 Change Image
               </button>
             </div>
           </div>
         </label>
-        <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+        <p class="text-Neutral-500 text-xs flex items-center gap-2">
+          <span>
+            <i class="fa-solid fa-circle-info"></i>
+          </span>
+          Upload your photo (JPG or PNG, max size: 500KB).
+        </p>
 
-        <label for="name">Full Name</label>
-        <input
-          class="user-input"
-          type="text"
-          id="name"
-          placeholder="e.g. John Doe"
-        />
-        <label for="email">Email Address</label>
-        <input
-          class="user-input"
-          type="email"
-          id="email"
-          placeholder="example@email.com"
-        />
-        <label for="github">GitHub Username</label>
-        <input
-          class="user-input"
-          type="text"
-          id="github"
-          placeholder="@yourusername"
-        />
+        <div class="input-container">
+          <label for="name">Full Name</label>
+          <input
+            class="user-input"
+            type="text"
+            id="name"
+            placeholder="e.g. John Doe"
+          />
+          <span id="name-error"></span>
+        </div>
+        <div class="input-container">
+          <label for="email">Email Address</label>
+          <input
+            class="user-input"
+            type="email"
+            id="email"
+            placeholder="example@email.com"
+          />
+          <span id="email-error"></span>
+        </div>
+        <div class="input-container">
+          <label for="github">GitHub Username</label>
+          <input
+            class="user-input"
+            type="text"
+            id="github"
+            placeholder="@yourusername"
+          />
+          <span id="github-error"></span>
+        </div>
         <button
           type="submit"
-          class="bg-Orange-700 text-Neutral-900 rounded-lg py-3"
+          class="bg-Orange-700 text-Neutral-900 rounded-lg py-3 button"
         >
           Generate My Ticket
         </button>
