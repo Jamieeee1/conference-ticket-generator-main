@@ -14,6 +14,14 @@
 
 @layer components {
   .user-input {
-    @apply border border-Neutral-300 rounded-lg p-3;
+    @apply border border-Neutral-300 rounded-lg p-3 bg-Neutral-300/20;
+  }
+
+  .imageFix {
+    @apply text-Neutral-300 bg-none bg-Neutral-500/30 py-1 px-2.5 rounded-md;
+  }
+
+  .input-container {
+    @apply flex flex-col gap-2 w-full;
   }
 }
