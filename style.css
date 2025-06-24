@@ -14,7 +14,7 @@
 
 @layer components {
   .user-input {
-    @apply border border-Neutral-300 rounded-lg p-3 bg-Neutral-300/20;
+    @apply border rounded-lg p-3 bg-Neutral-300/20;
   }
 
   .imageFix {
