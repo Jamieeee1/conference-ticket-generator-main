@@ -9,7 +9,7 @@ const removeButton = document.getElementById("removeimage");
 const changeButton = document.getElementById("changeimage");
 
 // input
-const name = document.getElementById("name");
+const names = document.getElementById("name");
 const email = document.getElementById("email");
 const github = document.getElementById("github");
 
@@ -56,8 +56,6 @@ changeButton.addEventListener("click", () => {
   fileInput.click();
 });
 
-// const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
-
 droparea.addEventListener("dragover", (e) => {
   e.preventDefault();
 });
@@ -67,3 +65,35 @@ droparea.addEventListener("drop", (e) => {
   fileInput.files = e.dataTransfer.files;
   updateAvatar();
 });
+
+let nameCheck;
+
+names.addEventListener("keyup", checkname);
+const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
+function checkname() {
+  if (names.value.trim() === "") {
+    nameError.classList.remove("invisible");
+    names.classList.remove("border-Neutral-300");
+    names.classList.add("border-Orange-500");
+    nameCheck = false;
+  } else if (regex.test(names.value)) {
+    nameError.classList.add("invisible");
+    names.classList.remove("border-Orange-500");
+    names.classList.add("border-Neutral-300");
+    nameCheck = true;
+  } else if (regex.test(names.value) === false) {
+    nameError.classList.remove("invisible");
+    names.classList.remove("border-Neutral-300");
+    names.classList.add("border-Orange-500");
+    nameCheck = false;
+  } else {
+    return true;
+  }
+}
+
+// const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// if (emailRegex.test(email.value.trim())) {
+//   // valid email
+// } else {
+//   // invalid email
+// }
