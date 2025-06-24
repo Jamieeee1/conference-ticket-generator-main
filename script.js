@@ -18,12 +18,6 @@ const nameError = document.getElementById("name-error");
 const emailError = document.getElementById("email-error");
 const githubError = document.getElementById("github-error");
 
-// Prevent default drag behaviors
-// ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-//   droparea.addEventListener(eventName, preventDefaults, false);
-//   document.body.addEventListener(eventName, preventDefaults, false);
-// });
-
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -31,6 +25,9 @@ buttons.forEach((button) => {
 });
 
 fileInput.addEventListener("change", updateAvatar);
+names.addEventListener("keyup", checkname);
+email.addEventListener("keyup", checkEmail);
+github.addEventListener("keyup", checkGithub);
 
 function updateAvatar() {
   const file = fileInput.files[0];
@@ -67,10 +64,8 @@ droparea.addEventListener("drop", (e) => {
 });
 
 let nameCheck;
-
-names.addEventListener("keyup", checkname);
-const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
 function checkname() {
+  const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
   if (names.value.trim() === "") {
     nameError.classList.remove("invisible");
     names.classList.remove("border-Neutral-300");
@@ -91,9 +86,65 @@ function checkname() {
   }
 }
 
-// const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// if (emailRegex.test(email.value.trim())) {
-//   // valid email
-// } else {
-//   // invalid email
-// }
+let emailCheck;
+function checkEmail() {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email.value.trim() === "") {
+    emailError.classList.remove("invisible");
+    email.classList.remove("border-Neutral-300");
+    email.classList.add("border-Orange-500");
+    emailCheck = false;
+  } else if (emailRegex.test(email.value.trim())) {
+    emailError.classList.add("invisible");
+    email.classList.remove("border-Orange-500");
+    email.classList.add("border-Neutral-300");
+    emailCheck = true;
+  } else {
+    emailError.classList.remove("invisible");
+    email.classList.remove("border-Neutral-300");
+    email.classList.add("border-Orange-500");
+    emailCheck = false;
+  }
+}
+
+let githubCheck;
+function checkGithub() {
+  const githubRegex = /^@([a-zA-Z\d](?:[a-zA-Z\d-]{0,37}[a-zA-Z\d])?)$/;
+  if (github.value.trim() === "") {
+    githubError.classList.remove("invisible");
+    github.classList.remove("border-Neutral-300");
+    github.classList.add("border-Orange-500");
+    githubCheck = false;
+  } else if (githubRegex.test(github.value.trim())) {
+    githubError.classList.add("invisible");
+    github.classList.remove("border-Orange-500");
+    github.classList.add("border-Neutral-300");
+    githubCheck = true;
+  } else {
+    githubError.classList.remove("invisible");
+    github.classList.remove("border-Neutral-300");
+    github.classList.add("border-Orange-500");
+    githubCheck = false;
+  }
+}
+
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   checkname();
+//   checkEmail();
+//   checkGithub();
+
+//   if (nameCheck && emailCheck && githubCheck) {
+//     form.submit();
+//   } else {
+//     if (!nameCheck) {
+//       names.classList.add("border-Orange-500");
+//     }
+//     if (!emailCheck) {
+//       email.classList.add("border-Orange-500");
+//     }
+//     if (!githubCheck) {
+//       github.classList.add("border-Orange-500");
+//     }
+//   }
+// });
