@@ -27,6 +27,7 @@ const ticketName = document.querySelectorAll(".ticket-name");
 const ticketEmail = document.getElementById("ticket-mail");
 const ticketGithub = document.getElementById("ticket-github");
 const ticketAvatar = document.getElementById("ticket-avatar");
+const resetAllBtn = document.getElementById("resetAll");
 
 let imgUrl;
 
@@ -160,4 +161,16 @@ submitButton.addEventListener("click", () => {
       github.classList.add("border-Orange-500");
     }
   }
+});
+
+resetAllBtn.addEventListener("click", () => {
+  email.value = "";
+  names.value = "";
+  github.value = "";
+  emailCheck = false;
+  nameCheck = false;
+  githubCheck = false;
+  form.classList.remove("hidden");
+  ticketPage.classList.add("hidden");
+  removeButton.click();
 });
