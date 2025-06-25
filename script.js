@@ -18,11 +18,17 @@ const nameError = document.getElementById("name-error");
 const emailError = document.getElementById("email-error");
 const githubError = document.getElementById("github-error");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-  });
-});
+// Submit button
+const submitButton = document.getElementById("submit-button");
+
+// Ticket Page
+const ticketPage = document.getElementById("ticket-page");
+const ticketName = document.querySelectorAll(".ticket-name");
+const ticketEmail = document.getElementById("ticket-mail");
+const ticketGithub = document.getElementById("ticket-github");
+const ticketAvatar = document.getElementById("ticket-avatar");
+
+let imgUrl;
 
 fileInput.addEventListener("change", updateAvatar);
 names.addEventListener("keyup", checkname);
@@ -37,7 +43,7 @@ function updateAvatar() {
     dragText.classList.remove("hidden");
     return;
   } else if (file) {
-    let imgUrl = URL.createObjectURL(file);
+    imgUrl = URL.createObjectURL(file);
     avatar.src = imgUrl;
     imageEdit.classList.remove("hidden");
     dragText.classList.add("hidden");
@@ -63,7 +69,7 @@ droparea.addEventListener("drop", (e) => {
   updateAvatar();
 });
 
-let nameCheck;
+let nameCheck = false;
 function checkname() {
   const regex = /^[A-Za-z]{2,}\s[A-Za-z]{2,}$/;
   if (names.value.trim() === "") {
@@ -86,7 +92,7 @@ function checkname() {
   }
 }
 
-let emailCheck;
+let emailCheck = false;
 function checkEmail() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (email.value.trim() === "") {
@@ -107,7 +113,7 @@ function checkEmail() {
   }
 }
 
-let githubCheck;
+let githubCheck = false;
 function checkGithub() {
   const githubRegex = /^@([a-zA-Z\d](?:[a-zA-Z\d-]{0,37}[a-zA-Z\d])?)$/;
   if (github.value.trim() === "") {
@@ -128,23 +134,30 @@ function checkGithub() {
   }
 }
 
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   checkname();
-//   checkEmail();
-//   checkGithub();
-
-//   if (nameCheck && emailCheck && githubCheck) {
-//     form.submit();
-//   } else {
-//     if (!nameCheck) {
-//       names.classList.add("border-Orange-500");
-//     }
-//     if (!emailCheck) {
-//       email.classList.add("border-Orange-500");
-//     }
-//     if (!githubCheck) {
-//       github.classList.add("border-Orange-500");
-//     }
-//   }
-// });
+submitButton.addEventListener("click", () => {
+  console.log(github.value);
+  if (nameCheck && emailCheck && githubCheck) {
+    ticketAvatar.src = imgUrl ? imgUrl : "/assets/images/image-avatar.jpg";
+    form.classList.add("hidden");
+    ticketPage.classList.remove("hidden");
+    ticketName.forEach((element) => {
+      element.textContent = names.value;
+    });
+    ticketEmail.textContent = email.value;
+    ticketGithub.textContent = github.value;
+    ticketAvatar.alt = names.value + "'s avatar";
+  } else {
+    if (!nameCheck) {
+      names.classList.remove("border-Neutral-300");
+      names.classList.add("border-Orange-500");
+    }
+    if (!emailCheck) {
+      email.classList.remove("border-Neutral-300");
+      email.classList.add("border-Orange-500");
+    }
+    if (!githubCheck) {
+      github.classList.remove("border-Neutral-300");
+      github.classList.add("border-Orange-500");
+    }
+  }
+});
