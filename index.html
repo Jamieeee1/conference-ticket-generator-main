@@ -36,14 +36,38 @@
     ></script>
   </head>
   <body
-    class="bg-[url('assets/images/background-mobile.png')] bg-cover bg-no-repeat bg-center md:bg-[url('assets/images/background-tablet.png')] lg:bg-[url('assets/images/background-desktop.png')] text-Neutral-0 text-[20px]"
+    class="bg-[url('assets/images/background-mobile.png')] bg-cover bg-no-repeat bg-center md:bg-[url('assets/images/background-tablet.png')] lg:bg-[url('assets/images/background-desktop.png')] text-Neutral-0 text-[20px] relative max-h-fit"
   >
+    <!-- background images  -->
+    <div
+      class="absolute w-[140px] md:w-[180px] lg:h-[350px] lg:w-[350px] md:h-[180px] h-[140px] right-0 top-4 lg:top-8"
+    >
+      <img src="/assets/images/pattern-squiggly-line-top.svg" alt="" />
+    </div>
+    <div class="absolute h-[inherit] -z-10 w-full">
+      <img src="/assets/images/pattern-lines.svg" alt="" />
+    </div>
+    <div class="absolute -top-[70px] left-10 hidden -z-10 md:block">
+      <img src="/assets/images/pattern-circle.svg" alt="" />
+    </div>
+    <div
+      class="absolute top-[500px] -right-[70px] md:right-[250px] hidden md:block -z-10"
+    >
+      <img src="/assets/images/pattern-circle.svg" alt="" />
+    </div>
+    <div class="absolute bottom-0 left-0 lg:max-h-[900px] lg:max-w-1/2 -z-10">
+      <img
+        src="assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"
+        alt=""
+        srcset="
+          assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg  768w,
+          assets/images/pattern-squiggly-line-bottom-desktop.svg       1024w
+        "
+        sizes="(max-width: 768px) 768px, (min-width: 769px) 1024px"
+      />
+    </div>
     <div class="relative min-h-screen px-3 pt-7 flex flex-col items-center">
-      <div
-        class="absolute w-[140px] md:w-[180px] lg:h-[350px] lg:w-[350px] md:h-[180px] h-[140px] right-0 top-4 lg:top-8"
-      >
-        <img src="/assets/images/pattern-squiggly-line-top.svg" alt="" />
-      </div>
+      <!-- contents -->
       <h1 class="flex justify-center w-full">
         <img src="/assets/images/logo-full.svg" alt="" />
       </h1>
@@ -250,18 +274,6 @@
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
         >. Coded by <a href="#">Barnabas James Oluwamayowa</a>.
-      </div>
-
-      <div class="absolute bottom-0 lg:max-h-[500px] lg:max-w-1/2 -z-10">
-        <img
-          src="assets\images\pattern-squiggly-line-bottom-mobile-tablet.svg"
-          alt=""
-          srcset="
-            assets\images\pattern-squiggly-line-bottom-mobile-tablet.svg  768w,
-            assets/images/pattern-squiggly-line-bottom-desktop.svg       1024w
-          "
-          sizes="(max-width: 768px) 768w, (min-width: 769px) 1024w"
-        />
       </div>
     </div>
 
