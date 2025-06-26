@@ -51,6 +51,12 @@ function updateAvatar() {
   }
 }
 
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
+});
+
 removeButton.addEventListener("click", () => {
   fileInput.value = "";
   updateAvatar();
@@ -135,8 +141,8 @@ function checkGithub() {
   }
 }
 
-submitButton.addEventListener("click", () => {
-  console.log(github.value);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   if (nameCheck && emailCheck && githubCheck) {
     ticketAvatar.src = imgUrl ? imgUrl : "/assets/images/image-avatar.jpg";
     form.classList.add("hidden");
