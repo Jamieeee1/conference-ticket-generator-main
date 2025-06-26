@@ -38,8 +38,13 @@ github.addEventListener("keyup", checkGithub);
 
 function updateAvatar() {
   const file = fileInput.files[0];
+  // if (fileInput.files.length > 0) {
+  //   file = fileInput.files[0];
+  // } else {
+  //   file = null;
+  // }
   if (!file) {
-    avatar.src = "/assets/images/icon-upload.svg";
+    avatar.src = "assets/images/icon-upload.svg";
     imageEdit.classList.add("hidden");
     dragText.classList.remove("hidden");
     return;
