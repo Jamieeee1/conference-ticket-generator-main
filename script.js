@@ -144,7 +144,7 @@ function checkGithub() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (nameCheck && emailCheck && githubCheck) {
-    ticketAvatar.src = imgUrl ? imgUrl : "/assets/images/image-avatar.jpg";
+    ticketAvatar.src = imgUrl ? imgUrl : "assets/images/image-avatar.jpg";
     form.classList.add("hidden");
     ticketPage.classList.remove("hidden");
     ticketName.forEach((element) => {
