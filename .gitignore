@@ -22,8 +22,8 @@ npm-debug.log*
 /coverage
 
 # Production
-# /build
-/dist
+/build
+# /dist
 /.next
 /out
 
