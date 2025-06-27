@@ -17,6 +17,7 @@ const github = document.getElementById("github");
 const nameError = document.getElementById("name-error");
 const emailError = document.getElementById("email-error");
 const githubError = document.getElementById("github-error");
+const imageError = document.getElementById("avatar-error");
 
 // Submit button
 const submitButton = document.getElementById("submit-button");
@@ -31,10 +32,24 @@ const resetAllBtn = document.getElementById("resetAll");
 
 let imgUrl;
 
-fileInput.addEventListener("change", updateAvatar);
+fileInput.addEventListener("change", checkImageSize);
 names.addEventListener("keyup", checkname);
 email.addEventListener("keyup", checkEmail);
 github.addEventListener("keyup", checkGithub);
+
+function checkImageSize() {
+  const file = fileInput.files[0];
+  if (file && file.size > 2 * 1024 * 1024) {
+    imageError.classList.remove("text-Neutral-500");
+    imageError.classList.add("text-Orange-700");
+    return;
+  } else {
+    imageError.classList.contains("text-Orange-700") &&
+      imageError.classList.remove("text-Orange-700") &&
+      imageError.classList.add("text-Neutral-500");
+    updateAvatar();
+  }
+}
 
 function updateAvatar() {
   const file = fileInput.files[0];
@@ -60,11 +75,6 @@ buttons.forEach((button) => {
 removeButton.addEventListener("click", () => {
   const dt = new DataTransfer();
   fileInput.files = dt.files;
-  // fileInput.files = [];
-  // if (fileInput.files && fileInput.files.length) {
-  //   const dt = new DataTransfer();
-  //   fileInput.files = dt.files;
-  // }
   updateAvatar();
 });
 
@@ -79,7 +89,7 @@ droparea.addEventListener("dragover", (e) => {
 droparea.addEventListener("drop", (e) => {
   e.preventDefault();
   fileInput.files = e.dataTransfer.files;
-  updateAvatar();
+  checkImageSize();
 });
 
 let nameCheck = false;
