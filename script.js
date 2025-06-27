@@ -39,7 +39,7 @@ github.addEventListener("keyup", checkGithub);
 function updateAvatar() {
   const file = fileInput.files[0];
   if (!file) {
-    avatar.src = "/assets/images/icon-upload.svg";
+    avatar.src = "assets/images/icon-upload.svg";
     imageEdit.classList.add("hidden");
     dragText.classList.remove("hidden");
     return;
@@ -151,7 +151,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (nameCheck && emailCheck && githubCheck) {
     ticketAvatar.src =
-      fileInput.files.length > 0 ? imgUrl : "/assets/images/image-avatar.jpg";
+      fileInput.files.length > 0 ? imgUrl : "assets/images/image-avatar.jpg";
     form.classList.add("hidden");
     ticketPage.classList.remove("hidden");
     ticketName.forEach((element) => {
