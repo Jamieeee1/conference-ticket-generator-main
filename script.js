@@ -37,14 +37,9 @@ email.addEventListener("keyup", checkEmail);
 github.addEventListener("keyup", checkGithub);
 
 function updateAvatar() {
-  let file;
-  if (fileInput.files.length > 0) {
-    file = fileInput.files[0];
-  } else {
-    file = null;
-  }
+  const file = fileInput.files[0];
   if (!file) {
-    avatar.src = "assets/images/icon-upload.svg";
+    avatar.src = "/assets/images/icon-upload.svg";
     imageEdit.classList.add("hidden");
     dragText.classList.remove("hidden");
     return;
