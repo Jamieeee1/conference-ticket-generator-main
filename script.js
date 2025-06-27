@@ -58,11 +58,13 @@ buttons.forEach((button) => {
 });
 
 removeButton.addEventListener("click", () => {
-  fileInput.value = "";
-  if (fileInput.files && fileInput.files.length) {
-    const dt = new DataTransfer();
-    fileInput.files = dt.files;
-  }
+  const dt = new DataTransfer();
+  fileInput.files = dt.files;
+  // fileInput.files = [];
+  // if (fileInput.files && fileInput.files.length) {
+  //   const dt = new DataTransfer();
+  //   fileInput.files = dt.files;
+  // }
   updateAvatar();
 });
 
